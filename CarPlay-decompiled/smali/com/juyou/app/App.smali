@@ -441,7 +441,7 @@
 
     invoke-virtual {v0, v1}, Lx/a;->o(Ljava/lang/String;)V
 
-    const-string v1, "2485-mmx-2601"
+    const-string v1, "2485"
 
     invoke-virtual {v0, v1}, Lx/a;->p(Ljava/lang/String;)V
 

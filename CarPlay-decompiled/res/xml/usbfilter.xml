@@ -2,4 +2,5 @@
 <resources
   xmlns:android="http://schemas.android.com/apk/res/android">
     <usb-device product-id="42149" vendor-id="1317" />
+    <usb-device product-id="42162" vendor-id="1317" />
 </resources>

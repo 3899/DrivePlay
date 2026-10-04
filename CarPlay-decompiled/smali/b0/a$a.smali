@@ -752,6 +752,10 @@
 
     if-eq v0, v2, :cond_1
 
+    const v2, 0xa4b2
+
+    if-eq v0, v2, :cond_1
+
     invoke-virtual {p1}, Landroid/hardware/usb/UsbDevice;->getProductId()I
 
     move-result p1

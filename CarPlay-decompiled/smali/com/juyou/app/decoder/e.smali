@@ -1459,13 +1459,12 @@
     invoke-direct {p0}, Lcom/juyou/app/decoder/e;->H()V
 
     :cond_1
+    :try_start_cfg
     iget-object v0, p0, Lcom/juyou/app/decoder/e;->b:Landroid/media/MediaCodec;
 
     if-eqz v0, :cond_2
 
     const/4 v1, 0x0
-
-    invoke-direct {p0, p1}, Lcom/juyou/app/decoder/e;->applyLowLatency(Landroid/media/MediaFormat;)V
 
     invoke-virtual {v0, p1, p2, v1, v3}, Landroid/media/MediaCodec;->configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
 
@@ -1475,8 +1474,19 @@
     if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Landroid/media/MediaCodec;->start()V
+    :try_end_cfg
+    .catch Ljava/lang/Exception; {:try_start_cfg .. :try_end_cfg} :catch_cfg
 
     :cond_3
+    return-void
+
+    :catch_cfg
+    move-exception p1
+
+    const-string v0, "MediaCodec configure/start failed"
+
+    invoke-static {v0}, Lb0/c;->e(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -2435,55 +2445,4 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method private final applyLowLatency(Landroid/media/MediaFormat;)V
-    .locals 3
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    :try_start_0
-    const-string v0, "priority"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :catch_0
-    :try_start_1
-    const-string v0, "low-latency"
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p1, v0, v1}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    :catch_1
-    :try_start_2
-    const-string v0, "operating-rate"
-
-    const/16 v1, 0x78
-
-    invoke-virtual {p1, v0, v1}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
-
-    :catch_2
-    :try_start_3
-    const-string v0, "vendor.low-latency.enable"
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p1, v0, v1}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
-
-    :catch_3
-    return-void
 .end method

@@ -5208,7 +5208,7 @@
 
     const-string p2, "carplayFps"
 
-    const/16 v2, 0x1e
+    const/16 v2, 0x3c
 
     invoke-virtual {p1, p2, v2}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
 

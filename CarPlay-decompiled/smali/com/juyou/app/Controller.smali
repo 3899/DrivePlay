@@ -2060,8 +2060,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    instance-of v2, v1, Ljava/lang/Integer;
 
+    if-nez v2, :cond_u_class_ok
+
+    goto :cond_2
+
+    :cond_u_class_ok
     check-cast v1, Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -2077,15 +2082,6 @@
     if-eqz v1, :cond_2
 
     return-void
-
-    :cond_1
-    new-instance p1, Ljava/lang/NullPointerException;
-
-    const-string v0, "null cannot be cast to non-null type kotlin.Int"
-
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 
     :cond_2
     iget-boolean v1, p0, Lcom/juyou/app/Controller;->m:Z

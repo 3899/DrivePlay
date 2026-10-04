@@ -1193,6 +1193,7 @@
 
     if-eqz v0, :cond_3
 
+    :try_start_write
     invoke-virtual {v0, p1, v2, p2}, Landroid/media/AudioTrack;->write([BII)I
 
     move-result p1
@@ -1200,6 +1201,11 @@
     if-ne p2, p1, :cond_3
 
     goto :goto_0
+    :try_end_write
+    .catch Ljava/lang/Exception; {:try_start_write .. :try_end_write} :catch_write
+
+    :catch_write
+    move-exception p1
 
     :cond_3
     const/4 v1, 0x0

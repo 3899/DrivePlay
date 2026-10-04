@@ -1,4 +1,4 @@
-﻿# Planning & scratch documents
+# Planning & scratch documents
 todo.md
 *.bak
 
@@ -14,6 +14,7 @@ build/
 dist/
 CarPlay-decompiled/build/
 CarPlay-decompiled/dist/
+jzzy-decompiled/
 
 # Logs & temp files
 *.log
@@ -24,3 +25,7 @@ CarPlay-decompiled/dist/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Keystores
+*.keystore
+*.jks

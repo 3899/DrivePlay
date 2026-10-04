@@ -1,5 +1,5 @@
 version: 3.0.3
-apkFileName: CarPlay-k-v1.9.8.70.2484-20240918.apk
+apkFileName: CarPlay-k-v1.9.8.71.2485-mmx-2601.apk
 usesFramework:
   ids:
   - 1
@@ -7,8 +7,8 @@ sdkInfo:
   minSdkVersion: 16
   targetSdkVersion: 29
 versionInfo:
-  versionCode: 70
-  versionName: 1.9.8
+  versionCode: 71
+  versionName: 1.9.8-mmx-2601
 resourcesInfo:
   packageId: 127
 doNotCompress:

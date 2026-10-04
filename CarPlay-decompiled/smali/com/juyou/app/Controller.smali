@@ -5749,23 +5749,7 @@
 
     move-result-object v1
 
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v7, 0x17
-
-    if-lt v6, v7, :cond_7
-
-    const/4 v6, 0x1
-
-    goto :goto_3
-
-    :cond_7
-    const/4 v6, 0x0
-
-    :goto_3
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v6
+    sget-object v6, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     invoke-virtual {v1, v4, v6}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
 
@@ -5774,7 +5758,9 @@
 
     move-result-object v1
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v6, 0xd
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
@@ -5940,6 +5926,63 @@
     invoke-virtual {v0, v2, v1}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
 
     :cond_a
+    sget-object v0, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v0
+
+    const-string v1, "audio_defaults_fixed_v1"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_b
+
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    const-string v3, "highAudioApi"
+
+    invoke-virtual {v0, v3, v2}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const/4 v2, 0x3
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const-string v3, "audioStreamType"
+
+    invoke-virtual {v0, v3, v2}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const/4 v2, 0x0
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const-string v3, "phoneStreamType"
+
+    invoke-virtual {v0, v3, v2}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const/16 v2, 0xd
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const-string v3, "altStreamType"
+
+    invoke-virtual {v0, v3, v2}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    :cond_b
     return-void
 .end method
 

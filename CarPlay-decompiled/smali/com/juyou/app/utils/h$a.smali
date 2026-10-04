@@ -1327,69 +1327,23 @@
 .end method
 
 .method public final n()Z
-    .locals 4
+    .locals 3
 
-    sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;
+    sget-object v0, Lcom/juyou/b/BaseApplication;->g:Lcom/juyou/b/BaseApplication$a;
 
-    const-string v1, "qti"
+    invoke-virtual {v0}, Lcom/juyou/b/BaseApplication$a;->a()Lcom/juyou/b/BaseApplication;
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result-object v0
 
-    move-result v0
-
-    const-string v1, "9"
+    const-string v1, "surface_on_top"
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
-
-    sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
-
-    const-string v3, "QUALCOMM"
-
-    invoke-static {v3, v0}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    sget-object v0, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
-
-    const-string v3, "msm8953_64"
-
-    invoke-static {v3, v0}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return v2
-
-    :cond_0
-    sget-object v0, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
-
-    const-string v3, "t7_c211mcar"
-
-    invoke-static {v3, v0}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    sget-object v0, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    :cond_1
-    return v2
+    return v0
 .end method
 
 .method public final o(ZZZIIZ)V

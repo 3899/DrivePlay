@@ -33,7 +33,7 @@
             <action android:name="android.media.browse.MediaBrowserService"/>
         </intent>
     </queries>
-    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/logo" android:label="@string/app_name" android:name="com.juyou.app.App" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/AppBaseTheme">
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/logo" android:label="@string/app_name" android:name="com.juyou.app.App" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@style/AppBaseTheme">
         <activity android:configChanges="locale|keyboardHidden|orientation|screenSize" android:enabled="true" android:exported="true" android:launchMode="singleTask" android:name="com.juyou.app.activity.MainFragmentActivity" android:theme="@style/AppThemeFullScreenBase">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

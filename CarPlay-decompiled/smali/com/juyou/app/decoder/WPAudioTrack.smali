@@ -464,6 +464,8 @@
     :cond_3
     const-string v5, "altStreamType"
 
+    const/16 v6, 0xd
+
     :goto_2
     invoke-virtual {v4, v5, v6}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
 

@@ -1483,6 +1483,20 @@
     goto :goto_5
 
     :cond_6
+    if-ne v7, v4, :check_alt
+
+    const/4 v11, 0x0
+
+    goto :goto_5
+
+    :check_alt
+    if-ne v7, v3, :default_music
+
+    const/16 v11, 0xd
+
+    goto :goto_5
+
+    :default_music
     const/4 v11, 0x3
 
     :goto_5

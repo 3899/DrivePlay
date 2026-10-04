@@ -20,6 +20,7 @@
             <Preference android:title="@string/carplayFps" android:key="carplayFps" />
             <SwitchPreferenceCompat android:title="@string/set_blur_screen" android:key="prevBlurredScreen" />
             <SwitchPreferenceCompat android:title="@string/setting_fix_resolution" android:key="fix_resolution" />
+            <SwitchPreferenceCompat android:title="视频置顶" android:key="surface_on_top" android:defaultValue="true" />
             <SwitchPreferenceCompat android:title="保存视频数据" android:key="save_h264" android:defaultValue="false" />
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/setting_screen_audio" android:key="audioScreenSetting">
@@ -34,12 +35,12 @@
             <SwitchPreferenceCompat android:title="@string/setting_audio_oboe" android:key="audioPlayer1" />
             <ListPreference android:title="@string/setting_audio_output_devices" android:key="audioDevice" android:summary="@string/setting_value" android:dependency="audioPlayer1" />
             <ListPreference android:entries="@array/aec_mode" android:title="@string/micAec" android:key="aecMode" android:summary="@string/setting_value" android:defaultValue="1" android:entryValues="@array/aec_mode_value" />
-            <SwitchPreferenceCompat android:title="@string/setting_high_audio_api" android:key="highAudioApi" />
+            <SwitchPreferenceCompat android:checked="false" android:title="@string/setting_high_audio_api" android:key="highAudioApi" android:defaultValue="false" />
             <SwitchPreferenceCompat android:title="@string/setting_phone_use_media" android:key="phoneUseMedia" android:dependency="highAudioApi" />
             <SwitchPreferenceCompat android:title="@string/setting_navi_use_media" android:key="naviUseMedia" android:dependency="highAudioApi" />
-            <ListPreference android:title="@string/audioStreamType" android:key="audioStreamType" android:summary="@string/setting_value" />
-            <ListPreference android:title="@string/setting_phone_stream_type" android:key="phoneStreamType" android:summary="@string/setting_value" />
-            <ListPreference android:title="@string/setting_alt_stream_type" android:key="altStreamType" android:summary="@string/setting_value" />
+            <ListPreference android:title="@string/audioStreamType" android:key="audioStreamType" android:summary="@string/setting_value" android:defaultValue="3" />
+            <ListPreference android:title="@string/setting_phone_stream_type" android:key="phoneStreamType" android:summary="@string/setting_value" android:defaultValue="0" />
+            <ListPreference android:title="@string/setting_alt_stream_type" android:key="altStreamType" android:summary="@string/setting_value" android:defaultValue="13" />
             <ListPreference android:title="@string/audioStreamType" android:key="audioStreamType_H" android:summary="@string/setting_value" />
             <ListPreference android:title="@string/setting_phone_stream_type" android:key="phoneStreamType_H" android:summary="@string/setting_value" />
             <ListPreference android:title="@string/setting_alt_stream_type" android:key="altStreamType_H" android:summary="@string/setting_value" />

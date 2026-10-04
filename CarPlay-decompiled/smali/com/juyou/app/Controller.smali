@@ -2924,6 +2924,31 @@
 
     move-result-object v15
 
+    sget-object v0, Lcom/juyou/b/constants/Constants$CARPLAY_VOLUME;->MEDIA:Lcom/juyou/b/constants/Constants$CARPLAY_VOLUME;
+
+    if-ne v15, v0, :cond_bt_pass
+
+    sget-object v0, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v0
+
+    const-string v1, "audioOutputMode"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_bt_pass
+
+    return-void
+
+    :cond_bt_pass
     sget-object v14, Lcom/juyou/b/constants/Constants$CARPLAY_VOLUME;->ALT:Lcom/juyou/b/constants/Constants$CARPLAY_VOLUME;
 
     const/4 v13, 0x2
@@ -5238,6 +5263,20 @@
 
     move-result-object p1
 
+    const-string p2, "audioOutputMode"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, p2, v2}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/juyou/app/Controller;->w0(I)Lkotlin/n;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object p1
+
     const-string p2, "oemText"
 
     const-string v0, "HOME"
@@ -6510,6 +6549,33 @@
     return-void
 
     :cond_1
+    sget-object v1, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v1}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v1
+
+    const-string v2, "audioOutputMode"
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_bt_focus_ok
+
+    if-eqz p1, :cond_bt_focus_ok
+
+    if-nez p2, :cond_bt_focus_ok
+
+    if-nez p3, :cond_bt_focus_ok
+
+    return-void
+
+    :cond_bt_focus_ok
     sget p4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17

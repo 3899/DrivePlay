@@ -370,7 +370,7 @@
 
     const/4 v8, -0x2
 
-    if-ne v6, v8, :cond_7
+    if-ne v6, v8, :cond_usb_fatal
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -436,6 +436,13 @@
     const/4 v6, 0x1
 
     goto :goto_4
+
+    :cond_usb_fatal
+    const-string v6, "USB fatal read error (-1), breaking receive thread to recover"
+
+    invoke-static {v6}, Lb0/c;->e(Ljava/lang/String;)V
+
+    goto :cond_a
 
     :cond_8
     invoke-virtual {v1}, La0/a;->l()I

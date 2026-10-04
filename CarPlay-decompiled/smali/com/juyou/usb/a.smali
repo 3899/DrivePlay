@@ -175,17 +175,19 @@
     :cond_0
     iget v0, p0, Lcom/juyou/usb/a;->j:I
 
-    const/16 v1, 0x3e8
+    const/16 v1, 0x14
 
     if-lt v0, v1, :cond_1
 
-    const-string v0, "usb maybe can not communication,err times:1000"
+    const-string v0, "usb consecutive error threshold reached, closing connection for recovery"
 
     invoke-static {v0}, Lb0/c;->j(Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/juyou/usb/a;->j:I
+
+    invoke-virtual {p0}, Lcom/juyou/usb/a;->o()V
 
     :cond_1
     :goto_0

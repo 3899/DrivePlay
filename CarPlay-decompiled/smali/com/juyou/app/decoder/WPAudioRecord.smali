@@ -2154,6 +2154,8 @@
     :goto_9
     if-lez v1, :cond_8
 
+    invoke-direct {p0, v0, v1}, Lcom/juyou/app/decoder/WPAudioRecord;->applyMicGain([BI)V
+
     iget-boolean v2, p0, Lcom/juyou/app/decoder/WPAudioRecord;->j:Z
 
     if-eqz v2, :cond_b
@@ -2197,5 +2199,97 @@
 
     invoke-static {v0}, Lb0/c;->b(Ljava/lang/String;)V
 
+    return-void
+.end method
+
+.method private final applyMicGain([BI)V
+    .locals 7
+
+    if-eqz p1, :cond_gain_done
+
+    const/4 v0, 0x2
+
+    if-ge p2, v0, :cond_gain_start
+
+    goto :cond_gain_done
+
+    :cond_gain_start
+    sget-object v0, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v0
+
+    const-string v1, "mic_gain"
+
+    const/16 v2, 0x96
+
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/16 v1, 0x64
+
+    if-gt v0, v1, :cond_gain_loop_init
+
+    return-void
+
+    :cond_gain_loop_init
+    const/4 v1, 0x0
+
+    add-int/lit8 v2, p2, -0x1
+
+    :goto_gain_loop
+    if-ge v1, v2, :cond_gain_done
+
+    aget-byte v3, p1, v1
+
+    and-int/lit16 v3, v3, 0xff
+
+    add-int/lit8 v4, v1, 0x1
+
+    aget-byte v5, p1, v4
+
+    shl-int/lit8 v5, v5, 0x8
+
+    or-int/2addr v3, v5
+
+    int-to-short v3, v3
+
+    mul-int/2addr v3, v0
+
+    div-int/lit8 v3, v3, 0x64
+
+    const/16 v5, 0x7fff
+
+    if-le v3, v5, :cond_gain_clamp_low
+
+    const/16 v3, 0x7fff
+
+    goto :goto_gain_write
+
+    :cond_gain_clamp_low
+    const/16 v5, -0x8000
+
+    if-ge v3, v5, :goto_gain_write
+
+    const/16 v3, -0x8000
+
+    :goto_gain_write
+    int-to-byte v5, v3
+
+    aput-byte v5, p1, v1
+
+    shr-int/lit8 v3, v3, 0x8
+
+    int-to-byte v3, v3
+
+    aput-byte v3, p1, v4
+
+    add-int/lit8 v1, v1, 0x2
+
+    goto :goto_gain_loop
+
+    :cond_gain_done
     return-void
 .end method

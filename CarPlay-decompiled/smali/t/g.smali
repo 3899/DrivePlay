@@ -335,7 +335,7 @@
 .end method
 
 .method public final d([B[B)[B
-    .locals 7
+    .locals 9
 
     const-string v0, "data"
 
@@ -429,7 +429,19 @@
 
     array-length v2, v1
 
-    const/16 v6, 0x32
+    sget-object v6, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v6}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v6
+
+    const-string v7, "boxaecdelay"
+
+    const/16 v8, 0x32
+
+    invoke-virtual {v6, v7, v8}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
+
+    move-result v6
 
     invoke-virtual {p1, v1, v4, v2, v6}, Lcom/google/webrtc/juyou/apm/WebRtc$a;->b([S[SII)[S
 

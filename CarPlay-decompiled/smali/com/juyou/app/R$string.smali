@@ -365,6 +365,14 @@
 
 .field public static final waitSystemBoot:I = 0x7f0f00df
 
+.field public static final reconnect_dongle:I = 0x7f0f00e0
+
+.field public static final reconnecting_dongle:I = 0x7f0f00e1
+
+.field public static final dongle_found_connecting:I = 0x7f0f00e2
+
+.field public static final dongle_not_found:I = 0x7f0f00e3
+
 
 # direct methods
 .method private constructor <init>()V

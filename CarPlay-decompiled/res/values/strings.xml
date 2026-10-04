@@ -225,4 +225,8 @@ please contact your dealer to update app"</string>
     <string name="v7_preference_on">ON</string>
     <string name="voice">Voice</string>
     <string name="waitSystemBoot">Waiting for the system to boot up</string>
+    <string name="reconnect_dongle">Reconnect dongle</string>
+    <string name="reconnecting_dongle">Reconnecting dongle...</string>
+    <string name="dongle_found_connecting">Dongle found, connecting...</string>
+    <string name="dongle_not_found">Dongle not detected, please check connection</string>
 </resources>

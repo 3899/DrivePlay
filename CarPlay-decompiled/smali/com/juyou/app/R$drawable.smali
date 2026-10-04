@@ -41,6 +41,8 @@
 
 .field public static final ic_next_gray_24dp:I = 0x7f080065
 
+.field public static final ic_refresh_white_48dp:I = 0x7f0800f4
+
 .field public static final ic_settings_white_48dp:I = 0x7f080066
 
 .field public static final iphone:I = 0x7f080067

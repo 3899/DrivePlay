@@ -183,6 +183,7 @@
     <id name="seekbar_value" />
     <id name="select_dialog_listview" />
     <id name="settingButton" />
+    <id name="reconnectButton" />
     <id name="setting_frame" />
     <id name="shortcut" />
     <id name="showCustom" />

@@ -220,4 +220,8 @@
     <string name="v7_preference_on">開啟</string>
     <string name="voice">語音識別</string>
     <string name="waitSystemBoot">請稍等，正在等待電腦啟動完畢</string>
+    <string name="reconnect_dongle">重新連接協議盒</string>
+    <string name="reconnecting_dongle">正在重新連接協議盒...</string>
+    <string name="dongle_found_connecting">已發現協議盒，正在握手連接...</string>
+    <string name="dongle_not_found">未檢測到協議盒，請檢查物理連接</string>
 </resources>

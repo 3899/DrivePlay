@@ -81,6 +81,8 @@
 
 .field public static final seekBar:I = 0x7f0900b2
 
+.field public static final reconnectButton:I = 0x7f0900f7
+
 .field public static final settingButton:I = 0x7f0900b6
 
 .field public static final setting_frame:I = 0x7f0900b7

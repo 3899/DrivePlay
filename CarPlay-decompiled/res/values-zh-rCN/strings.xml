@@ -220,4 +220,8 @@
     <string name="v7_preference_on">开启</string>
     <string name="voice">语音识别</string>
     <string name="waitSystemBoot">请稍等，将在车机完全启动后开始工作</string>
+    <string name="reconnect_dongle">重新连接协议盒</string>
+    <string name="reconnecting_dongle">正在重新连接协议盒...</string>
+    <string name="dongle_found_connecting">已发现协议盒，正在握手连接...</string>
+    <string name="dongle_not_found">未检测到协议盒，请检查物理连接</string>
 </resources>

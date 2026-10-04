@@ -20,6 +20,8 @@
 
 .field private k:Landroid/view/View;
 
+.field private u:Landroid/view/View;
+
 .field private l:Landroid/widget/ImageView;
 
 .field private m:I
@@ -192,6 +194,15 @@
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_2
+    iget-object p1, p0, Lcom/juyou/app/fragments/j;->u:Landroid/view/View;
+
+    if-eqz p1, :cond_reconn_v
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {p1}, Landroid/view/View;->clearFocus()V
+
+    :cond_reconn_v
     iget-object p1, p0, Lcom/juyou/app/fragments/j;->k:Landroid/view/View;
 
     if-eqz p1, :cond_3
@@ -238,6 +249,12 @@
 
     :cond_7
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    iget-object p1, p0, Lcom/juyou/app/fragments/j;->u:Landroid/view/View;
+
+    if-eqz p1, :cond_8
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     :cond_8
     :goto_5
@@ -955,6 +972,17 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
+    iget-object v0, p0, Lcom/juyou/app/fragments/j;->u:Landroid/view/View;
+
+    if-eqz v0, :cond_2
+
+    new-instance v1, Lcom/juyou/app/fragments/j$b;
+
+    invoke-direct {v1, p0}, Lcom/juyou/app/fragments/j$b;-><init>(Lcom/juyou/app/fragments/j;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_2
     return-void
 .end method
 
@@ -1485,6 +1513,27 @@
 
     :cond_11
     :goto_3
+    iget-object v1, v0, Lcom/juyou/app/fragments/j;->u:Landroid/view/View;
+
+    instance-of v2, v1, Landroid/widget/ImageButton;
+
+    if-eqz v2, :cond_reconn_cf
+
+    check-cast v1, Landroid/widget/ImageButton;
+
+    if-eqz v1, :cond_reconn_cf_end
+
+    invoke-virtual {v1, v7}, Landroid/widget/ImageButton;->setColorFilter(I)V
+
+    goto :goto_reconn_cf_end
+
+    :cond_reconn_cf
+    if-eqz v1, :cond_reconn_cf_end
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_reconn_cf_end
+    :goto_reconn_cf_end
     iget-object v1, v0, Lcom/juyou/app/fragments/j;->d:Landroid/view/View;
 
     if-nez v1, :cond_12
@@ -2291,6 +2340,23 @@
 
     iput-object v0, p0, Lcom/juyou/app/fragments/j;->k:Landroid/view/View;
 
+    iget-object v0, p0, Lcom/juyou/app/fragments/j;->d:Landroid/view/View;
+
+    if-nez v0, :cond_reconn_init
+
+    invoke-static {p3}, Lkotlin/jvm/internal/h;->l(Ljava/lang/String;)V
+
+    move-object v0, p2
+
+    :cond_reconn_init
+    const v2, 0x7f0900f7
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/juyou/app/fragments/j;->u:Landroid/view/View;
+
     invoke-direct {p0}, Lcom/juyou/app/fragments/j;->o()V
 
     iget-object v0, p0, Lcom/juyou/app/fragments/j;->d:Landroid/view/View;
@@ -2939,5 +3005,86 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
+    return-void
+.end method
+
+.method public static final reconnectDongle(Lcom/juyou/app/fragments/j;Landroid/view/View;)V
+    .locals 3
+
+    const-string v0, "reconnect dongle clicked"
+
+    invoke-static {v0}, Lb0/c;->b(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/View;->clearFocus()V
+
+    :cond_0
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    const v1, 0x7f0f00e1
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    :cond_1
+    sget-object v1, Lcom/juyou/usb/UsbUtils;->k:Lcom/juyou/usb/UsbUtils$a;
+
+    invoke-virtual {v1}, Lcom/juyou/usb/UsbUtils$a;->b()Lcom/juyou/usb/UsbUtils;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/juyou/usb/UsbUtils;->p()V
+
+    sget-object v1, Lcom/juyou/usb/UsbUtils;->k:Lcom/juyou/usb/UsbUtils$a;
+
+    invoke-virtual {v1}, Lcom/juyou/usb/UsbUtils$a;->b()Lcom/juyou/usb/UsbUtils;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/juyou/usb/UsbUtils;->h(Z)V
+
+    sget-object v1, Lcom/juyou/usb/UsbUtils;->k:Lcom/juyou/usb/UsbUtils$a;
+
+    invoke-virtual {v1}, Lcom/juyou/usb/UsbUtils$a;->b()Lcom/juyou/usb/UsbUtils;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/juyou/usb/UsbUtils;->g()Z
+
+    move-result v1
+
+    if-eqz v0, :cond_3
+
+    if-eqz v1, :cond_2
+
+    const v1, 0x7f0f00e2
+
+    goto :goto_0
+
+    :cond_2
+    const v1, 0x7f0f00e3
+
+    :goto_0
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    :cond_3
     return-void
 .end method

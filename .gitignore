@@ -1,0 +1,26 @@
+﻿# Planning & scratch documents
+todo.md
+*.bak
+
+# APK & Build outputs
+*.apk
+*.idsig
+
+# Binary dependencies & tools
+*.jar
+
+# Build directories
+build/
+dist/
+CarPlay-decompiled/build/
+CarPlay-decompiled/dist/
+
+# Logs & temp files
+*.log
+*.tmp
+
+# IDE & OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

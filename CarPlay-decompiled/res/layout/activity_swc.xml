@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:padding="@dimen/dp_16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:divider="@drawable/swc_dimen" android:showDividers="middle">
+        <include android:id="@id/swc_voice" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+        <include android:id="@id/swc_prev" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+        <include android:id="@id/swc_next" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+        <include android:id="@id/swc_pauseplay" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:padding="@dimen/dp_16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_32" android:divider="@drawable/swc_dimen" android:showDividers="middle">
+        <include android:id="@id/swc_pause" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+        <include android:id="@id/swc_play" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+        <include android:id="@id/swc_answer" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+        <include android:id="@id/swc_drop" layout="@layout/layout_swc" style="@style/swcButtonLayout" />
+    </LinearLayout>
+</LinearLayout>

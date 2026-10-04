@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aec_mode">
+        <item>@string/micAecByWebrtc</item>
+        <item>@string/micAecNone</item>
+    </string-array>
+    <string-array name="aec_mode_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="android_mode">
+        <item>CarLife</item>
+        <item>AndroidAuto</item>
+    </string-array>
+    <string-array name="android_mode_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="app_icon_func_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="audio_output_mode">
+        <item>@string/setting_audio_output_cp</item>
+        <item>@string/setting_audio_output_bt</item>
+    </string-array>
+    <string-array name="audio_output_mode_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="boot_mode">
+        <item>@string/system_boot_event</item>
+        <item>@string/usb_insert_event</item>
+    </string-array>
+    <string-array name="boot_mode_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="carplay_icon_size">
+        <item>@string/setting_carplay_icon_size_smallest</item>
+        <item>@string/setting_carplay_icon_size_smaller</item>
+        <item>@string/setting_carplay_icon_size_normal</item>
+        <item>@string/setting_carplay_icon_size_bigger</item>
+        <item>@string/setting_carplay_icon_size_largest</item>
+    </string-array>
+    <string-array name="language_mode">
+        <item>@string/language_auto</item>
+        <item>@string/language_cn</item>
+        <item>@string/language_traditional</item>
+        <item>@string/language_en</item>
+    </string-array>
+    <string-array name="language_mode_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="oem_icon_func">
+        <item>@string/oemIconFunc_car</item>
+        <item>@string/oemIconFunc_siri</item>
+    </string-array>
+    <string-array name="oem_icon_func_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="video_decode_mode">
+        <item>@string/decode_mode_normal</item>
+        <item>@string/decode_mode_compatible</item>
+    </string-array>
+    <string-array name="video_decode_mode_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

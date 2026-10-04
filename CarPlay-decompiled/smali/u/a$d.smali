@@ -148,15 +148,9 @@
 
     invoke-virtual {v0}, Lcom/juyou/app/Controller;->q0()V
 
-    sget-object v0, Lcom/juyou/b/BaseApplication;->g:Lcom/juyou/b/BaseApplication$a;
+    const-string v0, "connect timeout, waiting for next retry"
 
-    invoke-virtual {v0}, Lcom/juyou/b/BaseApplication$a;->a()Lcom/juyou/b/BaseApplication;
-
-    move-result-object v0
-
-    const-string v1, "connect failed"
-
-    invoke-virtual {v0, v1}, Lcom/juyou/b/BaseApplication;->d(Ljava/lang/String;)V
+    invoke-static {v0}, Lb0/c;->e(Ljava/lang/String;)V
 
     return-void
 

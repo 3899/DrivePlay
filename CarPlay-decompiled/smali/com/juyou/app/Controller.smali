@@ -2142,13 +2142,9 @@
 
     invoke-virtual {v1}, Lcom/juyou/b/BaseApplication;->c()V
 
-    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+    const-string v0, "USB REMOVE: reset state and waiting for reconnect"
 
-    move-result-object v0
-
-    const-string v1, "USB REMOVE \u8bf7\u6c42\u9000\u51fa"
-
-    invoke-virtual {v0, v1}, Lcom/juyou/app/App;->d(Ljava/lang/String;)V
+    invoke-static {v0}, Lb0/c;->j(Ljava/lang/String;)V
 
     const/4 v0, 0x0
 

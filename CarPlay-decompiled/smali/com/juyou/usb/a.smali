@@ -156,19 +156,15 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "usb err,box removed but not received"
+    const-string v0, "usb err, box disconnected, closing connection cleanly for re-enumeration"
 
     invoke-static {v0}, Lb0/c;->e(Ljava/lang/String;)V
 
-    sget-object v0, Lcom/juyou/b/BaseApplication;->g:Lcom/juyou/b/BaseApplication$a;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0}, Lcom/juyou/b/BaseApplication$a;->a()Lcom/juyou/b/BaseApplication;
+    iput v0, p0, Lcom/juyou/usb/a;->j:I
 
-    move-result-object v0
-
-    const-string v1, "use err,box removed but not received"
-
-    invoke-virtual {v0, v1}, Lcom/juyou/b/BaseApplication;->d(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/juyou/usb/a;->o()V
 
     goto :goto_0
 

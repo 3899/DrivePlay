@@ -331,7 +331,7 @@
 
     move-result-object v0
 
-    const-wide/16 v1, 0xc8
+    const-wide/16 v1, 0xa
 
     invoke-virtual {v0, p1, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
@@ -365,6 +365,12 @@
     return-void
 
     :cond_0
+    iget-object p1, p0, Lcom/juyou/app/fragments/m$a;->d:Lcom/juyou/app/fragments/m;
+
+    const/4 v0, 0x0
+
+    invoke-static {p1, v0}, Lcom/juyou/app/fragments/m;->q(Lcom/juyou/app/fragments/m;Z)V
+
     sget-object p1, Lcom/juyou/app/decoder/f;->a:Lcom/juyou/app/decoder/f;
 
     invoke-virtual {p1}, Lcom/juyou/app/decoder/f;->a()Lcom/juyou/b/constants/Constants$DECODERS;

@@ -7034,7 +7034,7 @@
 
     move-result-object v0
 
-    const-wide/16 v3, 0x64
+    const-wide/16 v3, 0xa
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 

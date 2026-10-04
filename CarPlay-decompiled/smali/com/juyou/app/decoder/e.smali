@@ -703,7 +703,10 @@
     const/4 v0, 0x0
 
     :goto_0
+    :try_start_0
     invoke-virtual {p1, p2, v0}, Landroid/media/MediaCodec;->releaseOutputBuffer(IZ)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     iget p1, p0, Lcom/juyou/app/decoder/e;->h:I
 
@@ -718,6 +721,11 @@
     iput p1, p0, Lcom/juyou/app/decoder/e;->M:I
 
     iput-boolean v1, p0, Lcom/juyou/app/decoder/e;->x:Z
+
+    return-void
+
+    :catch_0
+    move-exception v0
 
     return-void
 .end method

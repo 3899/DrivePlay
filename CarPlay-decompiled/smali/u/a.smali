@@ -801,6 +801,8 @@
 
     invoke-virtual {v0}, Lcom/juyou/app/Controller;->o0()V
 
+    invoke-virtual {v0}, Lcom/juyou/app/Controller;->p0()V
+
     return-void
 .end method
 

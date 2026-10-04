@@ -2179,6 +2179,8 @@
 
     invoke-direct {p0, v0}, Lcom/juyou/app/decoder/WPAudioTrack;->p(F)V
 
+    iput v0, p0, Lcom/juyou/app/decoder/WPAudioTrack;->D:F
+
     :cond_3
     return-void
 .end method

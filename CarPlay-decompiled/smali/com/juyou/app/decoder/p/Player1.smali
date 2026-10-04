@@ -21,10 +21,14 @@
 
     invoke-direct {v0, v1}, Lcom/juyou/app/decoder/p/Player1$a;-><init>(Lkotlin/jvm/internal/f;)V
 
+    :try_start_0
     const-string v0, "op"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :catchall_0
     return-void
 .end method
 

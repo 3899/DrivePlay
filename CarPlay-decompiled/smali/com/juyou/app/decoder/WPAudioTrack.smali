@@ -535,7 +535,7 @@
 
     move-result v4
 
-    iput-boolean v4, p0, Lcom/juyou/app/decoder/WPAudioTrack;->x:Z
+    iput-boolean v3, p0, Lcom/juyou/app/decoder/WPAudioTrack;->x:Z
 
     invoke-virtual {v0}, Lcom/juyou/b/BaseApplication$a;->a()Lcom/juyou/b/BaseApplication;
 

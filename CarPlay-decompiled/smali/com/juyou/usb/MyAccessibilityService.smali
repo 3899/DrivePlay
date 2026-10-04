@@ -95,8 +95,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-nez v1, :cond_pkg_match
 
+    invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getPackageName()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    const-string v3, "android"
+
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_pkg_match
+
+    goto :cond_22
+
+    :cond_pkg_match
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getClassName()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -107,19 +122,39 @@
 
     move-result v1
 
-    const-string v4, "com.android.systemui.usb.UsbConfirmActivity"
+    if-eqz v1, :cond_check_usb_confirm
 
-    if-nez v1, :cond_0
+    goto :cond_0
 
+    :cond_check_usb_confirm
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getClassName()Ljava/lang/CharSequence;
 
     move-result-object v1
+
+    const-string v4, "com.android.systemui.usb.UsbConfirmActivity"
 
     invoke-static {v1, v4}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_check_usb_perm
+
+    goto :cond_0
+
+    :cond_check_usb_perm
+    invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getClassName()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    const-string v4, "com.android.systemui.usb.UsbPermissionActivity"
+
+    invoke-static {v1, v4}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    goto :cond_22
 
     :cond_0
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getClassName()Ljava/lang/CharSequence;
@@ -209,6 +244,76 @@
     return-void
 
     :cond_4
+    # 1. Recursive search for android:id/checkbox (Always allow checkbox)
+    const-string v2, "android:id/checkbox"
+
+    invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->findAccessibilityNodeInfosByViewId(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_skip_chk_id
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_skip_chk_id
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->isChecked()Z
+
+    move-result v3
+
+    if-nez v3, :cond_skip_chk_id
+
+    const/16 v3, 0x10
+
+    invoke-virtual {v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->performAction(I)Z
+
+    :cond_skip_chk_id
+    # 2. Recursive search for android:id/button1 (OK / Positive button)
+    const-string v2, "android:id/button1"
+
+    invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->findAccessibilityNodeInfosByViewId(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_skip_btn1_id
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_skip_btn1_id
+
+    iget-object v3, v0, Lcom/juyou/usb/MyAccessibilityService;->d:Ljava/lang/String;
+
+    const-string v4, "perform ok by android:id/button1"
+
+    invoke-static {v3, v4}, Lb0/c;->c(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    const/16 v3, 0x10
+
+    invoke-virtual {v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->performAction(I)Z
+
+    return-void
+
+    :cond_skip_btn1_id
     invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChildCount()I
 
     move-result v2

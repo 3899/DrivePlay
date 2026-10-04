@@ -583,7 +583,7 @@
 .end method
 
 .method public final h(La0/a;)I
-    .locals 9
+    .locals 8
 
     const-string v0, "receiveMsg"
 
@@ -629,8 +629,6 @@
     const/4 v2, 0x0
 
     const/4 v3, 0x0
-
-    const/16 v8, 0xc8
 
     :goto_0
     if-lez v0, :cond_4
@@ -679,7 +677,7 @@
 
     iget-object v7, p0, Lcom/juyou/usb/a;->e:[B
 
-    invoke-virtual {v5, v6, v7, v4, v8}, Landroid/hardware/usb/UsbDeviceConnection;->bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BII)I
+    invoke-virtual {v5, v6, v7, v4, v2}, Landroid/hardware/usb/UsbDeviceConnection;->bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BII)I
 
     move-result v1
 

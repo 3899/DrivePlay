@@ -31,7 +31,7 @@
             <SwitchPreferenceCompat android:title="@string/compatible_phone" android:key="compatiblePhoneAudio" />
             <SwitchPreferenceCompat android:title="@string/useDongleMic" android:key="useDongleMic" />
             <SwitchPreferenceCompat android:title="@string/compatible_phone_record" android:key="micCompatible" />
-            <ListPreference android:entries="@array/audio_output_mode" android:title="@string/setting_audio_output_mode" android:key="audioOutputMode" android:entryValues="@array/audio_output_mode_value" />
+            <ListPreference android:entries="@array/audio_output_mode" android:title="@string/setting_audio_output_mode" android:key="audioOutputMode" android:entryValues="@array/audio_output_mode_value" android:defaultValue="0" />
             <SwitchPreferenceCompat android:title="@string/setting_audio_oboe" android:key="audioPlayer1" />
             <ListPreference android:title="@string/setting_audio_output_devices" android:key="audioDevice" android:summary="@string/setting_value" android:dependency="audioPlayer1" />
             <ListPreference android:entries="@array/aec_mode" android:title="@string/micAec" android:key="aecMode" android:summary="@string/setting_value" android:defaultValue="1" android:entryValues="@array/aec_mode_value" />

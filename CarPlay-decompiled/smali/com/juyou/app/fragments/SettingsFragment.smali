@@ -2559,7 +2559,7 @@
 
     move-result v2
 
-    goto :cond_1b
+    if-nez v2, :cond_1b
 
     iget-object v2, v0, Lcom/juyou/app/fragments/SettingsFragment;->B:Landroidx/preference/PreferenceScreen;
 

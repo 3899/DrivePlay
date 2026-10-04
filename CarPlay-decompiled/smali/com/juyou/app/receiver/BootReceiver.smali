@@ -41,18 +41,6 @@
 
     invoke-static {p2}, Lb0/c;->e(Ljava/lang/String;)V
 
-    sget-object p2, Landroid/os/Build;->BOARD:Ljava/lang/String;
-
-    const/4 v0, 0x1
-
-    const-string v1, "HYUNDAI"
-
-    invoke-static {v1, p2, v0}, Lkotlin/text/i;->l(Ljava/lang/String;Ljava/lang/String;Z)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_0
-
     sget-object p2, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
 
     invoke-virtual {p2}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;

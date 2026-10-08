@@ -43,6 +43,13 @@
         <item>@string/setting_carplay_icon_size_bigger</item>
         <item>@string/setting_carplay_icon_size_largest</item>
     </string-array>
+    <string-array name="carplay_icon_size_value">
+        <item>0.8</item>
+        <item>0.9</item>
+        <item>1.0</item>
+        <item>1.1</item>
+        <item>1.2</item>
+    </string-array>
     <string-array name="language_mode">
         <item>@string/language_auto</item>
         <item>@string/language_cn</item>

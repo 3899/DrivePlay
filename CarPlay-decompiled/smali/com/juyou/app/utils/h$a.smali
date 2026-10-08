@@ -702,6 +702,36 @@
 
     invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    new-instance v1, Ly/d;
+
+    const/16 p2, 0x780
+
+    const/16 v0, 0x2d0
+
+    invoke-direct {v1, p2, v0}, Ly/d;-><init>(II)V
+
+    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Ly/d;
+
+    const/16 p2, 0x500
+
+    const/16 v0, 0x1e0
+
+    invoke-direct {v1, p2, v0}, Ly/d;-><init>(II)V
+
+    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Ly/d;
+
+    const/16 p2, 0x500
+
+    const/16 v0, 0x2d0
+
+    invoke-direct {v1, p2, v0}, Ly/d;-><init>(II)V
+
+    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     return-object p1
 .end method
 

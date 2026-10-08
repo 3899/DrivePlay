@@ -1459,6 +1459,29 @@
     invoke-direct {p0}, Lcom/juyou/app/decoder/e;->H()V
 
     :cond_1
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x1e
+
+    if-lt v1, v2, :cond_skip_low_lat
+
+    const-string v1, "low-latency"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p1, v1, v2}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
+
+    const-string v1, "priority"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v1, v2}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
+
+    const-string v1, "MediaCodec: injected low-latency=1 and priority=0"
+
+    invoke-static {v1}, Lb0/c;->b(Ljava/lang/String;)V
+
+    :cond_skip_low_lat
     :try_start_cfg
     iget-object v0, p0, Lcom/juyou/app/decoder/e;->b:Landroid/media/MediaCodec;
 

@@ -1175,8 +1175,6 @@
     invoke-virtual {v2, v3}, Landroidx/core/view/WindowInsetsControllerCompat;->b(I)V
 
     :cond_1
-    if-nez p2, :cond_7
-
     sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x13

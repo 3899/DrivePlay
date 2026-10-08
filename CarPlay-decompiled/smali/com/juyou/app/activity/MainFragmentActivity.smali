@@ -2287,15 +2287,7 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/h;->c(Ljava/lang/Object;Ljava/lang/String;)V
 
-    sget-object v1, Lcom/juyou/app/Controller;->T:Lcom/juyou/app/Controller$c;
-
-    invoke-virtual {v1}, Lcom/juyou/app/Controller$c;->a()Lcom/juyou/app/Controller;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/juyou/app/Controller;->Z()Z
-
-    move-result v1
+    const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Lcom/juyou/app/utils/h$a;->l(Landroid/view/Window;Z)V
 

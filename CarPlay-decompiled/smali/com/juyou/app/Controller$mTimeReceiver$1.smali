@@ -32,37 +32,217 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .locals 5
 
-    const-string v0, "context"
+    if-eqz p1, :cond_all_end
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/h;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    if-nez p2, :cond_check_action
 
-    const-string p1, "intent"
+    goto/16 :cond_all_end
 
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/h;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    :cond_check_action
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
+    move-result-object v0
+
+    const/4 v1, -0x1
+
+    if-eqz v0, :cond_check_uimode
+
+    const-string v2, ".ON"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_is_night
+
+    const-string v2, "_ON"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_check_off
+
+    :cond_is_night
+    const/4 v1, 0x1
+
+    goto/16 :cond_eval_result
+
+    :cond_check_off
+    const-string v2, ".OFF"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_is_day
+
+    const-string v2, "_OFF"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_check_headlight_extra
+
+    :cond_is_day
+    const/4 v1, 0x0
+
+    goto/16 :cond_eval_result
+
+    :cond_check_headlight_extra
+    sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "headlight"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_check_uimode
+
+    const-string v0, "state"
+
+    const/4 v2, -0x1
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v2, :cond_got_extra_state
+
+    const-string v0, "status"
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    :cond_got_extra_state
+    const/4 v2, 0x1
+
+    if-ne v0, v2, :cond_extra_not_1
+
+    const/4 v1, 0x1
+
+    goto :cond_eval_result
+
+    :cond_extra_not_1
+    if-nez v0, :cond_check_extra_bool
+
+    const/4 v1, 0x0
+
+    goto :cond_eval_result
+
+    :cond_check_extra_bool
+    const-string v0, "state"
+
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_check_uimode
+
+    const-string v0, "state"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_bool_off
+
+    const/4 v1, 0x1
+
+    goto :cond_eval_result
+
+    :cond_bool_off
+    const/4 v1, 0x0
+
+    goto :cond_eval_result
+
+    :cond_check_uimode
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->uiMode:I
+
+    and-int/lit8 v0, v0, 0x30
+
+    const/16 v2, 0x20
+
+    if-ne v0, v2, :cond_ui_not_night
+
+    const/4 v1, 0x1
+
+    goto :cond_eval_result
+
+    :cond_ui_not_night
+    const/16 v2, 0x10
+
+    if-ne v0, v2, :cond_try_time
+
+    const/4 v1, 0x0
+
+    goto :cond_eval_result
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+
+    :cond_try_time
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/16 p2, 0xb
+    const/16 v2, 0xb
 
-    invoke-virtual {p1, p2}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
 
-    move-result p1
+    move-result v0
 
-    const/16 p2, 0x12
+    const/16 v2, 0x12
 
-    if-ge p1, p2, :cond_1
+    if-ge v0, v2, :cond_time_night
 
-    const/4 p2, 0x6
+    const/4 v2, 0x6
 
-    if-gt p1, p2, :cond_0
+    if-gt v0, v2, :cond_time_day
 
-    goto :goto_0
+    :cond_time_night
+    const/4 v1, 0x1
 
-    :cond_0
+    goto :cond_eval_result
+
+    :cond_time_day
+    const/4 v1, 0x0
+
+    :cond_eval_result
+    const/4 v0, 0x1
+
+    if-ne v1, v0, :cond_set_day
+
+    iget-object p1, p0, Lcom/juyou/app/Controller$mTimeReceiver$1;->a:Lcom/juyou/app/Controller;
+
+    invoke-virtual {p1, v0}, Lcom/juyou/app/Controller;->D0(Z)V
+
+    goto :cond_all_end
+
+    :cond_set_day
+    if-nez v1, :cond_all_end
+
     sget-object p1, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
 
     invoke-virtual {p1}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
@@ -77,23 +257,12 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_all_end
 
     iget-object p1, p0, Lcom/juyou/app/Controller$mTimeReceiver$1;->a:Lcom/juyou/app/Controller;
 
     invoke-virtual {p1, v0}, Lcom/juyou/app/Controller;->D0(Z)V
 
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    iget-object p1, p0, Lcom/juyou/app/Controller$mTimeReceiver$1;->a:Lcom/juyou/app/Controller;
-
-    const/4 p2, 0x1
-
-    invoke-virtual {p1, p2}, Lcom/juyou/app/Controller;->D0(Z)V
-
-    :cond_2
-    :goto_1
+    :cond_all_end
     return-void
 .end method

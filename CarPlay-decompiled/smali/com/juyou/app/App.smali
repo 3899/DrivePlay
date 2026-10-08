@@ -309,7 +309,21 @@
 
     invoke-virtual {v0, p2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    :try_start_sa
     invoke-virtual {p0, v0}, Landroid/app/Application;->startActivity(Landroid/content/Intent;)V
+    :try_end_sa
+    .catch Ljava/lang/Exception; {:try_start_sa .. :try_end_sa} :catch_sa
+
+    goto :cond_2
+
+    :catch_sa
+    move-exception p1
+
+    invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lb0/c;->j(Ljava/lang/String;)V
 
     :cond_2
     return-void

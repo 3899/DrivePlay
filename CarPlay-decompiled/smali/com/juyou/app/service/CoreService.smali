@@ -376,6 +376,20 @@
 
     move-result-object v1
 
+    const-string v2, "back_connection"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-nez v1, :cond_check_ready
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v1
+
     const-string v2, "enhanceUsb"
 
     const/4 v3, 0x0
@@ -386,6 +400,7 @@
 
     if-eqz v1, :cond_1
 
+    :cond_check_ready
     sget-object v1, Lcom/juyou/app/Controller;->T:Lcom/juyou/app/Controller$c;
 
     invoke-virtual {v1}, Lcom/juyou/app/Controller$c;->a()Lcom/juyou/app/Controller;
@@ -448,45 +463,7 @@
 
     invoke-static {v2}, Lb0/c;->b(Ljava/lang/String;)V
 
-    int-to-long v2, v8
-
-    cmp-long v4, v6, v2
-
-    if-gez v4, :cond_0
-
-    sget-object v2, Landroid/os/Build;->BOARD:Ljava/lang/String;
-
-    const-string v3, "HYUNDAI"
-
-    invoke-static {v3, v2, v1}, Lkotlin/text/i;->l(Ljava/lang/String;Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/juyou/app/App;->i()Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string v0, "should exit now cs"
-
-    invoke-static {v0}, Lb0/c;->b(Ljava/lang/String;)V
-
-    sget-object v0, Lb0/a;->a:Lb0/a$a;
-
-    invoke-virtual {v0, p0}, Lb0/a$a;->s(Landroid/content/Context;)V
-
-    return-void
+    goto :cond_0
 
     :cond_0
     iget-object v1, p0, Lcom/juyou/app/service/CoreService;->i:Lkotlinx/coroutines/d0;

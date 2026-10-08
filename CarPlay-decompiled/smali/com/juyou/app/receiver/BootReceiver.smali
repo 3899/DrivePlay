@@ -57,13 +57,28 @@
 
     if-nez p2, :cond_0
 
-    const-string p2, "should exit now br"
+    const-string p2, "BootReceiver: starting CoreService for background auto-connection"
 
     invoke-static {p2}, Lb0/c;->b(Ljava/lang/String;)V
 
-    sget-object p2, Lb0/a;->a:Lb0/a$a;
+    new-instance p2, Landroid/content/Intent;
 
-    invoke-virtual {p2, p1}, Lb0/a$a;->s(Landroid/content/Context;)V
+    const-class v0, Lcom/juyou/app/service/CoreService;
+
+    invoke-direct {p2, p1, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x1a
+
+    if-lt v0, v1, :cond_start_srv
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    goto :cond_0
+
+    :cond_start_srv
+    invoke-virtual {p1, p2}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     :cond_0
     return-void

@@ -269,6 +269,16 @@
 
     if-nez v4, :cond_5
 
+    invoke-virtual {v3}, Lcom/juyou/app/Controller$c;->a()Lcom/juyou/app/Controller;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/juyou/app/Controller;->V()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
     invoke-static {v1}, Lkotlinx/coroutines/e0;->e(Lkotlinx/coroutines/d0;)V
 
     invoke-virtual {v3}, Lcom/juyou/app/Controller$c;->a()Lcom/juyou/app/Controller;

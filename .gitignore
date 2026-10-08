@@ -15,6 +15,7 @@ dist/
 CarPlay-decompiled/build/
 CarPlay-decompiled/dist/
 jzzy-decompiled/
+apk-decompiled/
 
 # Logs & temp files
 *.log

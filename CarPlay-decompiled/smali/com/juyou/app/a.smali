@@ -341,6 +341,44 @@
 
     move-result-object v0
 
+    const-string v2, "back_connection"
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v2, v4}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_legacy_exit
+
+    const-string v0, "AsyncTasks: back_connection enabled, move task to back and keep CoreService alive"
+
+    invoke-static {v0}, Lb0/c;->b(Ljava/lang/String;)V
+
+    sget-object p1, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {p1}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object p1
+
+    iget-object p1, p1, Lcom/juyou/app/App;->i:Ljava/lang/ref/WeakReference;
+
+    if-eqz p1, :cond_bg_done
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/Activity;
+
+    if-eqz p1, :cond_bg_done
+
+    invoke-virtual {p1, v4}, Landroid/app/Activity;->moveTaskToBack(Z)Z
+
+    :cond_bg_done
+    goto/16 :goto_3
+
+    :cond_legacy_exit
     invoke-virtual {v0}, Lcom/juyou/b/BaseApplication;->c()V
 
     invoke-virtual {p1}, Lcom/juyou/b/BaseApplication$a;->a()Lcom/juyou/b/BaseApplication;

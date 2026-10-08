@@ -63,7 +63,7 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON"/>
             </intent-filter>
         </receiver>
-        <service android:enabled="true" android:exported="false" android:name="com.juyou.app.service.CoreService">
+        <service android:enabled="true" android:exported="false" android:foregroundServiceType="connectedDevice|mediaPlayback" android:name="com.juyou.app.service.CoreService">
             <intent-filter>
                 <action android:name="android.intent.action.juyou.coreservice"/>
                 <action android:name="android.intent.action.MEDIA_BUTTON"/>

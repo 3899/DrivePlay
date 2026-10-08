@@ -6937,10 +6937,6 @@
 
     invoke-static {p1}, Lb0/c;->b(Ljava/lang/String;)V
 
-    iget-boolean p1, p0, Lcom/juyou/app/Controller;->z:Z
-
-    if-eqz p1, :cond_0
-
     sget-object p1, Lcom/juyou/usb/UsbUtils;->k:Lcom/juyou/usb/UsbUtils$a;
 
     invoke-virtual {p1}, Lcom/juyou/usb/UsbUtils$a;->b()Lcom/juyou/usb/UsbUtils;

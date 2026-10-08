@@ -59,8 +59,15 @@
             </intent-filter>
         </receiver>
         <receiver android:enabled="true" android:exported="true" android:name="com.juyou.app.receiver.DWKeyReceiver">
-            <intent-filter>
+            <intent-filter android:priority="2147483647">
                 <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="com.syu.ms.action.KEY_ACTION"/>
+                <action android:name="com.ts.key.action"/>
+                <action android:name="com.glsx.boot.key"/>
+                <action android:name="com.microntek.irkeyDown"/>
+                <action android:name="com.microntek.irkeyUp"/>
+                <action android:name="kuwo.musichd_car.next"/>
+                <action android:name="kuwo.musichd_car.pre"/>
             </intent-filter>
         </receiver>
         <service android:enabled="true" android:exported="false" android:foregroundServiceType="connectedDevice|mediaPlayback" android:name="com.juyou.app.service.CoreService">

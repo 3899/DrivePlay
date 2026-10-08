@@ -53,22 +53,145 @@
 .end method
 
 .method private final b(Ljava/lang/String;II)V
-    .locals 0
+    .locals 3
 
-    new-instance p2, Ly/c;
+    new-instance v0, Ly/c;
 
-    invoke-direct {p2}, Ly/c;-><init>()V
+    invoke-direct {v0}, Ly/c;-><init>()V
 
-    invoke-virtual {p2, p3}, Ly/c;->e(I)V
+    invoke-virtual {v0, p3}, Ly/c;->e(I)V
 
-    invoke-virtual {p2, p1}, Ly/c;->d(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ly/c;->d(Ljava/lang/String;)V
 
     invoke-static {}, Lorg/greenrobot/eventbus/EventBus;->getDefault()Lorg/greenrobot/eventbus/EventBus;
 
     move-result-object p1
 
-    invoke-virtual {p1, p2}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lorg/greenrobot/eventbus/EventBus;->post(Ljava/lang/Object;)V
 
+    const/4 p1, 0x1
+
+    if-ne p2, p1, :cond_check_cmd
+
+    return-void
+
+    :cond_check_cmd
+    const/4 p1, 0x0
+
+    const/16 v0, 0x57
+
+    if-eq p3, v0, :cond_set_next
+
+    const/4 v0, 0x1
+
+    if-ne p3, v0, :cond_check_prev
+
+    :cond_set_next
+    const/4 p1, 0x3
+
+    goto :cond_dispatch_cmd
+
+    :cond_check_prev
+    const/16 v0, 0x58
+
+    if-eq p3, v0, :cond_set_prev
+
+    const/4 v0, 0x2
+
+    if-ne p3, v0, :cond_check_play_pause
+
+    :cond_set_prev
+    const/4 p1, 0x2
+
+    goto :cond_dispatch_cmd
+
+    :cond_check_play_pause
+    const/16 v0, 0x55
+
+    if-eq p3, v0, :cond_set_play
+
+    const/16 v0, 0x4f
+
+    if-eq p3, v0, :cond_set_play
+
+    const/4 v0, 0x3
+
+    if-eq p3, v0, :cond_set_play
+
+    const/16 v0, 0x7e
+
+    if-ne p3, v0, :cond_check_pause
+
+    :cond_set_play
+    const/4 p1, 0x4
+
+    goto :cond_dispatch_cmd
+
+    :cond_check_pause
+    const/16 v0, 0x7f
+
+    if-eq p3, v0, :cond_set_pause
+
+    const/16 v0, 0x56
+
+    if-ne p3, v0, :cond_check_call
+
+    :cond_set_pause
+    const/4 p1, 0x5
+
+    goto :cond_dispatch_cmd
+
+    :cond_check_call
+    const/4 v0, 0x5
+
+    if-eq p3, v0, :cond_set_call
+
+    const/4 v0, 0x4
+
+    if-ne p3, v0, :cond_check_endcall
+
+    :cond_set_call
+    const/4 p1, 0x6
+
+    goto :cond_dispatch_cmd
+
+    :cond_check_endcall
+    const/4 v0, 0x6
+
+    if-ne p3, v0, :cond_check_voice
+
+    const/4 p1, 0x7
+
+    goto :cond_dispatch_cmd
+
+    :cond_check_voice
+    const/16 v0, 0xe7
+
+    if-eq p3, v0, :cond_set_voice
+
+    const/16 v0, 0x54
+
+    if-eq p3, v0, :cond_set_voice
+
+    const/4 v0, 0x7
+
+    if-ne p3, v0, :cond_dispatch_cmd
+
+    :cond_set_voice
+    const/4 p1, 0x1
+
+    :cond_dispatch_cmd
+    if-eqz p1, :cond_end
+
+    sget-object p2, Lcom/juyou/app/Controller;->T:Lcom/juyou/app/Controller$c;
+
+    invoke-virtual {p2}, Lcom/juyou/app/Controller$c;->a()Lcom/juyou/app/Controller;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Lcom/juyou/app/Controller;->C(I)V
+
+    :cond_end
     return-void
 .end method
 
@@ -248,31 +371,65 @@
     :cond_6
     const-string v0, "KEY_CODE"
 
-    invoke-virtual {p2, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+    const/4 v1, -0x1
 
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    const-string v1, "KEY_ACTION"
-
-    invoke-virtual {p2, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
+    if-ne v0, v1, :cond_got_key
+
+    const-string v0, "key_code"
+
+    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_got_key
+
+    const-string v0, "keyCode"
+
+    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_got_key
+
+    const-string v0, "code"
+
+    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    :cond_got_key
+    if-ltz v0, :cond_7
+
+    const-string v1, "KEY_ACTION"
+
+    const/4 v2, 0x0
+
     invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result p2
+    move-result v1
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/juyou/app/receiver/DWKeyReceiver;->b(Ljava/lang/String;II)V
+    if-nez v1, :cond_action_ready
+
+    const-string v1, "key_action"
+
+    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-nez v1, :cond_action_ready
+
+    const-string v1, "keyAction"
+
+    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    :cond_action_ready
+    invoke-direct {p0, p1, v1, v0}, Lcom/juyou/app/receiver/DWKeyReceiver;->b(Ljava/lang/String;II)V
 
     :cond_7
     :goto_2

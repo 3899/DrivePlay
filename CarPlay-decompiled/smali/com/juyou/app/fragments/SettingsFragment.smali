@@ -3349,6 +3349,8 @@
 
     move-result-object v4
 
+    const/4 v2, 0x6
+
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -10444,6 +10446,17 @@
 
     move-result-object v3
 
+    const-string v4, "bootDelay"
+
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_not_bd
+
+    const/4 v11, 0x6
+
+    :cond_not_bd
     invoke-virtual {v1, v3, v11}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
 
     move-result v12

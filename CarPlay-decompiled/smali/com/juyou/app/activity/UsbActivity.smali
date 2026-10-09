@@ -754,7 +754,7 @@
 
     const-string v4, "bootDelay"
 
-    const/16 v6, 0x1e
+    const/4 v6, 0x6
 
     invoke-virtual {v3, v4, v6}, Lcom/juyou/b/BaseApplication;->g(Ljava/lang/String;I)I
 

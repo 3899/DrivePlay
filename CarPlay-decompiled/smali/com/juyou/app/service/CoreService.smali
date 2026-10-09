@@ -421,7 +421,7 @@
 
     move-result-object v2
 
-    const/16 v3, 0x1e
+    const/4 v3, 0x6
 
     const-string v4, "bootDelay"
 

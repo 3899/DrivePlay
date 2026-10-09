@@ -36,16 +36,58 @@
 
     if-eqz p1, :cond_all_end
 
-    if-nez p2, :cond_check_action
+    if-nez p2, :cond_check_nightmode
 
     goto/16 :cond_all_end
+
+    :cond_check_nightmode
+    sget-object v0, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v0
+
+    const-string v1, "nightMode"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-nez v0, :cond_check_light_switch
+
+    iget-object p1, p0, Lcom/juyou/app/Controller$mTimeReceiver$1;->a:Lcom/juyou/app/Controller;
+
+    invoke-virtual {p1, v2}, Lcom/juyou/app/Controller;->D0(Z)V
+
+    return-void
+
+    :cond_check_light_switch
+    sget-object v0, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v0
+
+    const-string v1, "nightModeByLight"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-nez v0, :cond_check_action
+
+    goto :cond_try_time
 
     :cond_check_action
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
-
-    const/4 v1, -0x1
 
     if-eqz v0, :cond_check_uimode
 
@@ -203,6 +245,25 @@
     :catchall_0
 
     :cond_try_time
+    sget-object v0, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {v0}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object v0
+
+    const-string v2, "autoNightMode"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v2, v3}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-nez v0, :cond_calc_time
+
+    goto :cond_eval_result
+
+    :cond_calc_time
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
@@ -243,23 +304,9 @@
     :cond_set_day
     if-nez v1, :cond_all_end
 
-    sget-object p1, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
-
-    invoke-virtual {p1}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
-
-    move-result-object p1
-
-    const-string p2, "nightMode"
+    iget-object p1, p0, Lcom/juyou/app/Controller$mTimeReceiver$1;->a:Lcom/juyou/app/Controller;
 
     const/4 v0, 0x0
-
-    invoke-virtual {p1, p2, v0}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
-
-    move-result p1
-
-    if-nez p1, :cond_all_end
-
-    iget-object p1, p0, Lcom/juyou/app/Controller$mTimeReceiver$1;->a:Lcom/juyou/app/Controller;
 
     invoke-virtual {p1, v0}, Lcom/juyou/app/Controller;->D0(Z)V
 

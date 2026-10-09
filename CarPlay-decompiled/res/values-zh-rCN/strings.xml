@@ -42,7 +42,7 @@
     <string name="appNotMatch">App与配件程序不匹配，请联系您的经销商更新程序</string>
     <string name="app_setting">应用设置</string>
     <string name="audioStreamType">媒体音频输出类型</string>
-    <string name="autoNightMode">自动切换夜间模式</string>
+    <string name="autoNightMode">按日出日落自动切换</string>
     <string name="autoShow">自动显示界面</string>
     <string name="autoStart">开机自动启动</string>
     <string name="automatic">自动计算</string>
@@ -107,7 +107,7 @@
     <string name="need_network">请先将车机连接到网络</string>
     <string name="needreboot">该设置修改后，需要重启应用生效</string>
     <string name="next">下一曲</string>
-    <string name="nightMode">启用夜间模式</string>
+    <string name="nightMode">自动切换夜间模式</string>
     <string name="noAudioPermission">无法获取录音权限！</string>
     <string name="noAudioPermissionNotice">录音权限获取失败，无法使用Siri和电话功能</string>
     <string name="noPermission">权限获取失败，可能影响部分功能的使用</string>
@@ -224,6 +224,6 @@
     <string name="reconnecting_dongle">正在重新连接协议盒...</string>
     <string name="dongle_found_connecting">已发现协议盒，正在握手连接...</string>
     <string name="dongle_not_found">未检测到协议盒，请检查物理连接</string>
-    <string name="auto_night_mode_by_headlight">跟随大灯切换夜间模式</string>
+    <string name="auto_night_mode_by_headlight">跟随大灯自动切换</string>
     <string name="prevent_overlay">防止画面被遮挡</string>
 </resources>

@@ -42,7 +42,7 @@
     <string name="appNotMatch">App与配件程序不匹配，请联系您的经销商更新程序</string>
     <string name="app_setting">應用設置</string>
     <string name="audioStreamType">媒體音頻輸出類型</string>
-    <string name="autoNightMode">自動切換夜間模式</string>
+    <string name="autoNightMode">按日出日落自動切換</string>
     <string name="autoShow">自動顯示界面</string>
     <string name="autoStart">連接配件和手機後自動啟動</string>
     <string name="automatic">自動計算</string>
@@ -107,7 +107,7 @@
     <string name="need_network">請先將車輛連接到網絡</string>
     <string name="needreboot">該設置修改後，重新啓動軟體</string>
     <string name="next">下一曲</string>
-    <string name="nightMode">啓用夜間模式</string>
+    <string name="nightMode">自動切換夜間模式</string>
     <string name="noAudioPermission">無法獲取錄音權限！</string>
     <string name="noAudioPermissionNotice">錄音權限獲取失敗，無法使用Siri和電話功能</string>
     <string name="noPermission">未授權部分權限，將影響部分功能使用</string>

@@ -44,7 +44,7 @@ please contact your dealer to update app"</string>
     <string name="app_name">DrivePlay</string>
     <string name="app_setting">App Settings</string>
     <string name="audioStreamType">Media audio stream type</string>
-    <string name="autoNightMode">Auto day-night mode</string>
+    <string name="autoNightMode">By sunrise/sunset</string>
     <string name="autoShow">Auto show view when dongle insert</string>
     <string name="autoStart">Automatic opening after inserting dongle and phone</string>
     <string name="automatic">Automatic</string>
@@ -109,7 +109,7 @@ please contact your dealer to update app"</string>
     <string name="need_network">Please connect vehicle to network</string>
     <string name="needreboot">This change need restart software</string>
     <string name="next">Next</string>
-    <string name="nightMode">Always night mode</string>
+    <string name="nightMode">Auto switch night mode</string>
     <string name="noAudioPermission">No recording permission！</string>
     <string name="noAudioPermissionNotice">Failed to get recording permission!</string>
     <string name="noPermission">Request permission failed!</string>
@@ -229,6 +229,6 @@ please contact your dealer to update app"</string>
     <string name="reconnecting_dongle">Reconnecting dongle...</string>
     <string name="dongle_found_connecting">Dongle found, connecting...</string>
     <string name="dongle_not_found">Dongle not detected, please check connection</string>
-    <string name="auto_night_mode_by_headlight">Switch Night Mode Based on System</string>
+    <string name="auto_night_mode_by_headlight">Follow headlights</string>
     <string name="prevent_overlay">Prevent screen overlay</string>
 </resources>

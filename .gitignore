@@ -30,3 +30,7 @@ Thumbs.db
 # Keystores
 *.keystore
 *.jks
+
+
+# Temporary
+temp/

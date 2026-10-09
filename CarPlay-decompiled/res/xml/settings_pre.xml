@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:key="rootSetting"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/app_setting" android:key="app_setting">
+        <Preference android:title="@string/setting_usb_delay" android:key="bootDelay" />
         <SwitchPreferenceCompat android:title="@string/box_insert_autostart" android:key="autoEnterApp" android:defaultValue="false" />
         <SwitchPreferenceCompat android:title="@string/autoStart" android:key="autoStart" />
         <ListPreference android:entries="@array/boot_mode" android:title="@string/boot_auto_connect_mode" android:key="autoBootMode" android:summary="@string/setting_value" android:entryValues="@array/boot_mode_value" />
-        <Preference android:title="@string/setting_usb_delay" android:key="bootDelay" />
         <SwitchPreferenceCompat android:title="@string/setting_background_connection" android:key="back_connection" android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/setting_media" android:key="mediaSetting">
@@ -22,7 +24,7 @@
             <SwitchPreferenceCompat android:title="@string/set_blur_screen" android:key="prevBlurredScreen" />
             <SwitchPreferenceCompat android:title="@string/setting_fix_resolution" android:key="fix_resolution" />
             <SwitchPreferenceCompat android:title="@string/prevent_overlay" android:key="preventOverlay" android:defaultValue="true" />
-            <SwitchPreferenceCompat android:title="视频置顶" android:key="surface_on_top" android:defaultValue="true" />
+            <SwitchPreferenceCompat android:title="视频图层置顶" android:key="surface_on_top" android:defaultValue="true" />
             <SwitchPreferenceCompat android:title="保存视频数据" android:key="save_h264" android:defaultValue="false" />
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/setting_screen_audio" android:key="audioScreenSetting">

@@ -44,12 +44,12 @@
     <string name="audioStreamType">媒体音频输出类型</string>
     <string name="autoNightMode">自动切换夜间模式</string>
     <string name="autoShow">自动显示界面</string>
-    <string name="autoStart">连接配件和手机后自动启动</string>
+    <string name="autoStart">开机自动启动</string>
     <string name="automatic">自动计算</string>
-    <string name="boot_auto_connect_mode">开机自动连接模式</string>
+    <string name="boot_auto_connect_mode">自动连接模式</string>
     <string name="bootup_delay_notice">开机后%s秒内不允许自动连接</string>
     <string name="boxAecDelay">配件回声消除延时参数</string>
-    <string name="box_insert_autostart">配件插入后自动进入APP</string>
+    <string name="box_insert_autostart">连接配件自动启动</string>
     <string name="box_not_connect">配件未连接</string>
     <string name="canDuck">导航压低媒体</string>
     <string name="cancel">取消</string>
@@ -107,7 +107,7 @@
     <string name="need_network">请先将车机连接到网络</string>
     <string name="needreboot">该设置修改后，需要重启应用生效</string>
     <string name="next">下一曲</string>
-    <string name="nightMode">使用夜间模式</string>
+    <string name="nightMode">启用夜间模式</string>
     <string name="noAudioPermission">无法获取录音权限！</string>
     <string name="noAudioPermissionNotice">录音权限获取失败，无法使用Siri和电话功能</string>
     <string name="noPermission">权限获取失败，可能影响部分功能的使用</string>
@@ -166,16 +166,16 @@
     <string name="setting_audio_output_mode">音频输出模式</string>
     <string name="setting_audio_output_mode_notice">成功后盒子将会断开并重新连接</string>
     <string name="setting_audio_testfix">调试录音并固定</string>
-    <string name="setting_background_connection">允许在后台自动连接</string>
+    <string name="setting_background_connection">后台自动连接</string>
     <string name="setting_carplay_icon_size">CarPlay图标尺寸</string>
     <string name="setting_carplay_icon_size_bigger">较大</string>
     <string name="setting_carplay_icon_size_largest">最大</string>
     <string name="setting_carplay_icon_size_normal">正常</string>
     <string name="setting_carplay_icon_size_smaller">较小</string>
     <string name="setting_carplay_icon_size_smallest">最小</string>
-    <string name="setting_duckmedia">媒体音可以被导航音压低</string>
+    <string name="setting_duckmedia">导航播报时自动压低媒体音</string>
     <string name="setting_enhance_usb">增强USB检测</string>
-    <string name="setting_fix_resolution">分辨率修正对齐</string>
+    <string name="setting_fix_resolution">修正分辨率比例</string>
     <string name="setting_high_audio_api">使用新版本的音频API</string>
     <string name="setting_high_record_api">使用新版本的录音API</string>
     <string name="setting_lock_resolution">锁定当前的分辨率</string>
@@ -191,7 +191,7 @@
     <string name="setting_show_statusbar">显示系统状态栏</string>
     <string name="setting_skipUsb">自动跳过USB授权弹框</string>
     <string name="setting_update_dongle">更新固件程序</string>
-    <string name="setting_usb_delay">开机连接保护</string>
+    <string name="setting_usb_delay">开机连接延时</string>
     <string name="setting_use_volume">单独音量控制</string>
     <string name="setting_value">当前设置：%s</string>
     <string name="setting_video_decoder">选择硬件解码器</string>
@@ -224,6 +224,6 @@
     <string name="reconnecting_dongle">正在重新连接协议盒...</string>
     <string name="dongle_found_connecting">已发现协议盒，正在握手连接...</string>
     <string name="dongle_not_found">未检测到协议盒，请检查物理连接</string>
-    <string name="auto_night_mode_by_headlight">根据系统状态切换夜间模式</string>
-    <string name="prevent_overlay">防止画面被遮挡(全屏沉浸自愈)</string>
+    <string name="auto_night_mode_by_headlight">跟随大灯切换夜间模式</string>
+    <string name="prevent_overlay">防止画面被遮挡</string>
 </resources>

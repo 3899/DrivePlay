@@ -21,6 +21,7 @@
             <Preference android:title="@string/carplayFps" android:key="carplayFps" />
             <SwitchPreferenceCompat android:title="@string/set_blur_screen" android:key="prevBlurredScreen" />
             <SwitchPreferenceCompat android:title="@string/setting_fix_resolution" android:key="fix_resolution" />
+            <SwitchPreferenceCompat android:title="@string/prevent_overlay" android:key="preventOverlay" android:defaultValue="true" />
             <SwitchPreferenceCompat android:title="视频置顶" android:key="surface_on_top" android:defaultValue="true" />
             <SwitchPreferenceCompat android:title="保存视频数据" android:key="save_h264" android:defaultValue="false" />
         </PreferenceScreen>
@@ -58,6 +59,7 @@
     <PreferenceCategory android:title="@string/carPlaySetting" android:key="carplaySetting">
         <SwitchPreferenceCompat android:title="@string/drivePosition" android:key="driverPosition" />
         <SwitchPreferenceCompat android:title="@string/nightMode" android:key="nightMode" android:disableDependentsState="true" />
+        <SwitchPreferenceCompat android:title="@string/auto_night_mode_by_headlight" android:key="nightModeByLight" android:defaultValue="true" android:dependency="nightMode" />
         <SwitchPreferenceCompat android:checked="true" android:title="@string/autoNightMode" android:key="autoNightMode" android:dependency="nightMode" android:defaultValue="true" />
         <Preference android:title="@string/swcKey" android:key="swcKey" />
         <EditTextPreference android:maxLength="10" android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;@#!$%^*()&lt;>'&quot;" android:title="@string/oemLabel" android:key="oemText" android:inputType="text" />

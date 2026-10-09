@@ -229,4 +229,6 @@ please contact your dealer to update app"</string>
     <string name="reconnecting_dongle">Reconnecting dongle...</string>
     <string name="dongle_found_connecting">Dongle found, connecting...</string>
     <string name="dongle_not_found">Dongle not detected, please check connection</string>
+    <string name="auto_night_mode_by_headlight">Switch Night Mode Based on System</string>
+    <string name="prevent_overlay">Prevent screen overlay</string>
 </resources>

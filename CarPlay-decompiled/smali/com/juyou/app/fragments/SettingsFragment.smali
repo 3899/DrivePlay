@@ -1792,7 +1792,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    goto :cond_4
 
     iget-object v3, v0, Lcom/juyou/app/fragments/SettingsFragment;->v:Landroidx/preference/PreferenceScreen;
 
@@ -2183,7 +2183,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_e
+    goto :cond_e
 
     iget-object v3, v0, Lcom/juyou/app/fragments/SettingsFragment;->m:Landroidx/preference/PreferenceCategory;
 
@@ -2272,7 +2272,7 @@
 
     aput-object v15, v9, v3
 
-    invoke-direct {v0, v2, v9}, Lcom/juyou/app/fragments/SettingsFragment;->Y(Landroidx/preference/PreferenceGroup;[Ljava/lang/String;)V
+    # invoke-direct {v0, v2, v9}, Lcom/juyou/app/fragments/SettingsFragment;->Y(Landroidx/preference/PreferenceGroup;[Ljava/lang/String;)V
 
     iget-object v2, v0, Lcom/juyou/app/fragments/SettingsFragment;->B:Landroidx/preference/PreferenceScreen;
 
@@ -2468,7 +2468,7 @@
 
     aput-object v4, v8, v5
 
-    invoke-direct {v0, v2, v8}, Lcom/juyou/app/fragments/SettingsFragment;->Y(Landroidx/preference/PreferenceGroup;[Ljava/lang/String;)V
+    # invoke-direct {v0, v2, v8}, Lcom/juyou/app/fragments/SettingsFragment;->Y(Landroidx/preference/PreferenceGroup;[Ljava/lang/String;)V
 
     invoke-virtual {v6}, Lb0/a$a;->h()Z
 

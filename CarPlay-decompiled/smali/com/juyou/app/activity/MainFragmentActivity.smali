@@ -2277,6 +2277,22 @@
 
     if-eqz p1, :cond_0
 
+    sget-object p1, Lcom/juyou/app/App;->m:Lcom/juyou/app/App$a;
+
+    invoke-virtual {p1}, Lcom/juyou/app/App$a;->a()Lcom/juyou/app/App;
+
+    move-result-object p1
+
+    const-string v0, "preventOverlay"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p1, v0, v1}, Lcom/juyou/b/BaseApplication;->e(Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
     sget-object p1, Lcom/juyou/app/utils/h;->e:Lcom/juyou/app/utils/h$a;
 
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;

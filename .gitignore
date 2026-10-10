@@ -12,10 +12,9 @@ todo.md
 # Build directories
 build/
 dist/
-CarPlay-decompiled/build/
-CarPlay-decompiled/dist/
-jzzy-decompiled/
-apk-decompiled/
+DrivePlay/build/
+DrivePlay/dist/
+*decompiled/
 
 # Logs & temp files
 *.log

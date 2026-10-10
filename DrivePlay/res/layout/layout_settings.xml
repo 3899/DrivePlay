@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
+    android:orientation="horizontal">
+
+    <!-- LEFT COLUMN: iOS Inset Sidebar (250dp) -->
+    <LinearLayout
+        android:id="@id/sidebar_container"
+        android:layout_width="250.0dp"
+        android:layout_height="match_parent"
+        android:background="?android:attr/colorBackground"
+        android:orientation="vertical">
+
+        <!-- Top Header & Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@id/activity_main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="54.0dp"
+            android:background="?android:attr/colorBackground"
+            android:minHeight="54.0dp"
+            app:navigationIcon="@drawable/ic_ios_back"
+            app:titleTextAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
+        <!-- 6 Category Navigation Tabs ScrollView -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0.0dp"
+            android:layout_weight="1.0"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10.0dp"
+                android:paddingRight="10.0dp"
+                android:paddingTop="8.0dp">
+
+                <!-- 1. 应用设置 -->
+                <LinearLayout
+                    android:id="@id/nav_tab_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="46.0dp"
+                    android:layout_marginBottom="4.0dp"
+                    android:background="@drawable/ios_sidebar_selected"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.0dp"
+                    android:paddingRight="12.0dp">
+                    <View
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:background="@drawable/ios_badge_app" />
+                    <TextView
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dp"
+                        android:layout_weight="1.0"
+                        android:text="@string/app_setting"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="15.0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ios_sidebar_badge_bg"
+                        android:paddingLeft="7.0dp"
+                        android:paddingRight="7.0dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="4"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <!-- 2. 画面设置 -->
+                <LinearLayout
+                    android:id="@id/nav_tab_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="46.0dp"
+                    android:layout_marginBottom="4.0dp"
+                    android:background="?android:selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.0dp"
+                    android:paddingRight="12.0dp">
+                    <View
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:background="@drawable/ios_badge_video" />
+                    <TextView
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dp"
+                        android:layout_weight="1.0"
+                        android:text="@string/setting_screen_video"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="15.0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ios_sidebar_badge_bg"
+                        android:paddingLeft="7.0dp"
+                        android:paddingRight="7.0dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="14"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <!-- 3. 声音设置 -->
+                <LinearLayout
+                    android:id="@id/nav_tab_audio"
+                    android:layout_width="match_parent"
+                    android:layout_height="46.0dp"
+                    android:layout_marginBottom="4.0dp"
+                    android:background="?android:selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.0dp"
+                    android:paddingRight="12.0dp">
+                    <View
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:background="@drawable/ios_badge_audio" />
+                    <TextView
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dp"
+                        android:layout_weight="1.0"
+                        android:text="@string/setting_screen_audio"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="15.0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ios_sidebar_badge_bg"
+                        android:paddingLeft="7.0dp"
+                        android:paddingRight="7.0dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="28"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <!-- 4. CarPlay设置 -->
+                <LinearLayout
+                    android:id="@id/nav_tab_carplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="46.0dp"
+                    android:layout_marginBottom="4.0dp"
+                    android:background="?android:selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.0dp"
+                    android:paddingRight="12.0dp">
+                    <View
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:background="@drawable/ios_badge_carplay" />
+                    <TextView
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dp"
+                        android:layout_weight="1.0"
+                        android:text="@string/carPlaySetting"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="15.0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ios_sidebar_badge_bg"
+                        android:paddingLeft="7.0dp"
+                        android:paddingRight="7.0dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="7"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <!-- 5. 高级设置 -->
+                <LinearLayout
+                    android:id="@id/nav_tab_advance"
+                    android:layout_width="match_parent"
+                    android:layout_height="46.0dp"
+                    android:layout_marginBottom="4.0dp"
+                    android:background="?android:selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.0dp"
+                    android:paddingRight="12.0dp">
+                    <View
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:background="@drawable/ios_badge_advance" />
+                    <TextView
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dp"
+                        android:layout_weight="1.0"
+                        android:text="@string/setting_advance"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="15.0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ios_sidebar_badge_bg"
+                        android:paddingLeft="7.0dp"
+                        android:paddingRight="7.0dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="6"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <!-- 6. 其他设置 -->
+                <LinearLayout
+                    android:id="@id/nav_tab_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="46.0dp"
+                    android:layout_marginBottom="4.0dp"
+                    android:background="?android:selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.0dp"
+                    android:paddingRight="12.0dp">
+                    <View
+                        android:layout_width="24.0dp"
+                        android:layout_height="24.0dp"
+                        android:background="@drawable/ios_badge_other" />
+                    <TextView
+                        android:layout_width="0.0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dp"
+                        android:layout_weight="1.0"
+                        android:text="@string/setting_other"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="15.0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ios_sidebar_badge_bg"
+                        android:paddingLeft="7.0dp"
+                        android:paddingRight="7.0dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="8"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Sidebar Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42.0dp"
+            android:background="?android:attr/colorBackground"
+            android:gravity="center"
+            android:paddingLeft="16.0dp"
+            android:paddingRight="16.0dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="v1.9.9"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="11.5sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Vertical Inset Separator -->
+    <View
+        android:layout_width="0.6dp"
+        android:layout_height="match_parent"
+        android:background="?attr/dividerHorizontal" />
+
+    <!-- RIGHT COLUMN: Settings Container -->
+    <FrameLayout
+        android:id="@id/setting_frame"
+        android:layout_width="0.0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:background="?android:attr/windowBackground" />
+</LinearLayout>

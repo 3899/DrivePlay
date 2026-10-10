@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="rootSetting">
+
+    <!-- 1. 应用设置 -->
+    <PreferenceCategory android:title="@string/app_setting" android:key="app_setting">
+        <SwitchPreferenceCompat
+            android:title="@string/autoStart"
+            android:key="autoStart"
+            android:defaultValue="true"
+            android:checked="true"
+            android:icon="@drawable/ios_ic_boot"
+            android:layout="@layout/preference_card_top" />
+        <Preference
+            android:title="@string/setting_usb_delay"
+            android:key="bootDelay"
+            android:dependency="autoStart"
+            android:icon="@drawable/ios_ic_delay"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/box_insert_autostart"
+            android:key="autoEnterApp"
+            android:defaultValue="true"
+            android:checked="true"
+            android:icon="@drawable/ios_ic_plug"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/setting_background_connection"
+            android:key="back_connection"
+            android:defaultValue="true"
+            android:checked="true"
+            android:icon="@drawable/ios_ic_bgconn"
+            android:layout="@layout/preference_card_bottom" />
+        <ListPreference
+            android:entries="@array/boot_mode"
+            android:title="@string/boot_auto_connect_mode"
+            android:key="autoBootMode"
+            android:summary="@string/setting_value"
+            android:defaultValue="0"
+            android:entryValues="@array/boot_mode_value"
+            android:icon="@drawable/ios_ic_mode" />
+    </PreferenceCategory>
+
+    <!-- 2. 画面设置 -->
+    <PreferenceCategory android:title="@string/setting_screen_video" android:key="videoScreenSetting">
+        <ListPreference
+            android:entries="@array/video_decode_mode"
+            android:title="@string/decode_mode"
+            android:key="decodeMode"
+            android:summary="@string/setting_value"
+            android:defaultValue="1"
+            android:entryValues="@array/video_decode_mode_value"
+            android:icon="@drawable/ios_ic_decode"
+            android:layout="@layout/preference_card_top" />
+        <ListPreference
+            android:title="@string/setting_video_decoder"
+            android:key="videoDecoder"
+            android:summary="@string/setting_value"
+            android:icon="@drawable/ios_ic_hardware"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/setting_async_decoder"
+            android:key="asyncDecoder"
+            android:icon="@drawable/ios_ic_async"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_resolution"
+            android:key="resolution"
+            android:summary="@string/setting_value"
+            android:dependency="lock_resolution"
+            android:icon="@drawable/ios_ic_resolution"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_carplay_icon_size"
+            android:key="icon_size"
+            android:summary="%s"
+            android:defaultValue="1.0"
+            android:entries="@array/carplay_icon_size"
+            android:entryValues="@array/carplay_icon_size_value"
+            android:icon="@drawable/ios_ic_icon_size"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/setting_lock_resolution"
+            android:key="lock_resolution"
+            android:disableDependentsState="true"
+            android:icon="@drawable/ios_ic_resolution"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/setting_show_statusbar"
+            android:key="showStatusBar"
+            android:dependency="lock_resolution"
+            android:icon="@drawable/ios_ic_resolution"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/set_show_navigation"
+            android:key="showNavigationBar"
+            android:dependency="lock_resolution"
+            android:icon="@drawable/ios_ic_resolution"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/carplayFps"
+            android:key="carplayFps"
+            android:icon="@drawable/ios_ic_fps"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/set_blur_screen"
+            android:key="prevBlurredScreen"
+            android:icon="@drawable/ios_ic_repair"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/setting_fix_resolution"
+            android:key="fix_resolution"
+            android:icon="@drawable/ios_ic_aspect"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/prevent_overlay"
+            android:key="preventOverlay"
+            android:defaultValue="true"
+            android:checked="true"
+            android:icon="@drawable/ios_ic_window"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="视频图层置顶"
+            android:key="surface_on_top"
+            android:defaultValue="true"
+            android:icon="@drawable/ios_ic_layer_top"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="保存视频数据"
+            android:key="save_h264"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_save_audio"
+            android:layout="@layout/preference_card_bottom" />
+    </PreferenceCategory>
+
+    <!-- 3. 声音设置 -->
+    <PreferenceCategory android:title="@string/setting_screen_audio" android:key="audioScreenSetting">
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/setting_audio_focus_enable"
+            android:key="audioFocusEnable"
+            android:defaultValue="true"
+            android:icon="@drawable/ios_ic_audio_focus"
+            android:layout="@layout/preference_card_top" />
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/setting_audio_focus"
+            android:key="useAudioFocus"
+            android:dependency="audioFocusEnable"
+            android:defaultValue="true"
+            android:icon="@drawable/ios_ic_interrupt"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/setting_duckmedia"
+            android:key="audioDuck"
+            android:defaultValue="true"
+            android:icon="@drawable/ios_ic_duck"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_media_reduction_factor"
+            android:key="duckFactor"
+            android:icon="@drawable/ios_ic_duck_factor"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/compatible_phone"
+            android:key="compatiblePhoneAudio"
+            android:icon="@drawable/ios_ic_phone_audio"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/useDongleMic"
+            android:key="useDongleMic"
+            android:icon="@drawable/ios_ic_dongle_mic"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/compatible_phone_record"
+            android:key="micCompatible"
+            android:icon="@drawable/ios_ic_rec_compat"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:entries="@array/audio_output_mode"
+            android:title="@string/setting_audio_output_mode"
+            android:key="audioOutputMode"
+            android:entryValues="@array/audio_output_mode_value"
+            android:defaultValue="0"
+            android:icon="@drawable/ios_ic_audio_output"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/setting_audio_oboe"
+            android:key="audioPlayer1"
+            android:icon="@drawable/ios_ic_oboe"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_audio_output_devices"
+            android:key="audioDevice"
+            android:summary="@string/setting_value"
+            android:dependency="audioPlayer1"
+            android:icon="@drawable/ios_ic_audio_device"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:entries="@array/aec_mode"
+            android:title="@string/micAec"
+            android:key="aecMode"
+            android:summary="@string/setting_value"
+            android:defaultValue="1"
+            android:entryValues="@array/aec_mode_value"
+            android:icon="@drawable/ios_ic_aec"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/setting_high_audio_api"
+            android:key="highAudioApi"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_audio_api"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/setting_phone_use_media"
+            android:key="phoneUseMedia"
+            android:dependency="highAudioApi"
+            android:icon="@drawable/ios_ic_phone_stream"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/setting_navi_use_media"
+            android:key="naviUseMedia"
+            android:dependency="highAudioApi"
+            android:icon="@drawable/ios_ic_navi_stream"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/audioStreamType"
+            android:key="audioStreamType"
+            android:summary="@string/setting_value"
+            android:defaultValue="3"
+            android:icon="@drawable/ios_ic_channel"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_phone_stream_type"
+            android:key="phoneStreamType"
+            android:summary="@string/setting_value"
+            android:defaultValue="0"
+            android:icon="@drawable/ios_ic_phone_stream"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_alt_stream_type"
+            android:key="altStreamType"
+            android:summary="@string/setting_value"
+            android:defaultValue="13"
+            android:icon="@drawable/ios_ic_navi_stream"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/audioStreamType"
+            android:key="audioStreamType_H"
+            android:summary="@string/setting_value"
+            android:icon="@drawable/ios_ic_channel"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_phone_stream_type"
+            android:key="phoneStreamType_H"
+            android:summary="@string/setting_value"
+            android:icon="@drawable/ios_ic_phone_stream"
+            android:layout="@layout/preference_card_middle" />
+        <ListPreference
+            android:title="@string/setting_alt_stream_type"
+            android:key="altStreamType_H"
+            android:summary="@string/setting_value"
+            android:icon="@drawable/ios_ic_navi_stream"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="@string/setting_use_volume"
+            android:key="volume_enable"
+            android:icon="@drawable/ios_ic_volume"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_volume_media"
+            android:key="volume_media"
+            android:summary="@string/setting_value"
+            android:dependency="volume_enable"
+            android:icon="@drawable/ios_ic_volume_media"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_volume_phone"
+            android:key="volume_phone"
+            android:summary="@string/setting_value"
+            android:dependency="volume_enable"
+            android:icon="@drawable/ios_ic_volume_phone"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_volume_alt"
+            android:key="volume_alt"
+            android:summary="@string/setting_value"
+            android:dependency="volume_enable"
+            android:icon="@drawable/ios_ic_volume_navi"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_audio_testfix"
+            android:key="recorder_test"
+            android:icon="@drawable/ios_ic_mic"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="测试后排喇叭"
+            android:key="audioFlag1"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_speaker_rear"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="保存录音音频"
+            android:key="save_record"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_save_audio"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:title="保存播放音频"
+            android:key="save_play"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_save_audio"
+            android:layout="@layout/preference_card_bottom" />
+    </PreferenceCategory>
+
+    <!-- 4. CarPlay设置 -->
+    <PreferenceCategory android:title="@string/carPlaySetting" android:key="carplaySetting">
+        <SwitchPreferenceCompat
+            android:title="@string/drivePosition"
+            android:key="driverPosition"
+            android:icon="@drawable/ios_ic_carplay"
+            android:layout="@layout/preference_card_top" />
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/nightMode"
+            android:key="nightMode"
+            android:defaultValue="true"
+            android:icon="@drawable/ios_ic_night"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/auto_night_mode_by_headlight"
+            android:key="nightModeByLight"
+            android:defaultValue="true"
+            android:dependency="nightMode"
+            android:icon="@drawable/ios_ic_headlight"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="true"
+            android:title="@string/autoNightMode"
+            android:key="autoNightMode"
+            android:defaultValue="true"
+            android:dependency="nightMode"
+            android:icon="@drawable/ios_ic_sun"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/swcKey"
+            android:key="swcKey"
+            android:icon="@drawable/ios_ic_steering"
+            android:layout="@layout/preference_card_middle" />
+        <EditTextPreference
+            android:maxLength="10"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;@#!$%^*()&lt;>'&quot;"
+            android:title="@string/oemLabel"
+            android:key="oemText"
+            android:inputType="text"
+            android:icon="@drawable/ios_ic_car_name"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/oemIcon"
+            android:key="oemIcon"
+            android:icon="@drawable/ios_ic_car_icon"
+            android:layout="@layout/preference_card_bottom" />
+    </PreferenceCategory>
+
+    <!-- 5. 高级设置 -->
+    <PreferenceCategory android:title="@string/setting_advance" android:key="advanceSetting">
+        <Preference
+            android:title="@string/setting_skipUsb"
+            android:key="skipUsbDialog"
+            android:icon="@drawable/ios_ic_usb"
+            android:layout="@layout/preference_card_top" />
+        <ListPreference
+            android:entries="@array/android_mode"
+            android:title="@string/androidPhone"
+            android:key="androidPhone"
+            android:summary="@string/setting_value"
+            android:entryValues="@array/android_mode_value"
+            android:icon="@drawable/ios_ic_mode"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/setting_enhance_usb"
+            android:key="enhanceUsb"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_usb"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="Save Logs"
+            android:key="saveLog"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_log"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/uploadLogFiles"
+            android:key="uploadLog"
+            android:icon="@drawable/ios_ic_log"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_reset_all"
+            android:key="resetAllSettings"
+            android:icon="@drawable/ios_ic_reset"
+            android:layout="@layout/preference_card_bottom" />
+    </PreferenceCategory>
+
+    <!-- 6. 其他设置 -->
+    <PreferenceCategory android:title="@string/setting_other" android:key="otherSetting">
+        <ListPreference
+            android:entries="@array/language_mode"
+            android:title="@string/language"
+            android:key="language"
+            android:summary="@string/setting_value"
+            android:defaultValue="0"
+            android:entryValues="@array/language_mode_value"
+            android:icon="@drawable/ios_ic_language"
+            android:layout="@layout/preference_card_top" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/setDarkTheme"
+            android:key="lightTheme"
+            android:defaultValue="false"
+            android:icon="@drawable/ios_ic_theme"
+            android:layout="@layout/preference_card_middle" />
+        <SwitchPreferenceCompat
+            android:checked="false"
+            android:title="@string/setting_waterfall_mode"
+            android:key="waterfall_mode"
+            android:defaultValue="false"
+            android:summary="@string/setting_waterfall_mode_summary"
+            android:icon="@drawable/ios_ic_window"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/cleanCache"
+            android:key="cleanCache"
+            android:icon="@drawable/ios_ic_cache"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/update"
+            android:key="update"
+            android:icon="@drawable/ios_ic_update"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/setting_update_dongle"
+            android:key="updateDongle"
+            android:icon="@drawable/ios_ic_update"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/feedback"
+            android:key="feedback"
+            android:icon="@drawable/ios_ic_about"
+            android:layout="@layout/preference_card_middle" />
+        <Preference
+            android:title="@string/about"
+            android:key="about"
+            android:icon="@drawable/ios_ic_about"
+            android:layout="@layout/preference_card_bottom" />
+    </PreferenceCategory>
+</PreferenceScreen>

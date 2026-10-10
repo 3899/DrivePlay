@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.juyou.app.widget.BackgroundView
+        android:id="@id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:innerRadius="200.0dp"
+        app:outerRadius="200.0dp" />
+
+    <ImageView
+        android:id="@id/iphone"
+        android:layout_width="80.0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:contentDescription="@string/app_name"
+        android:focusable="false"
+        android:src="@drawable/apple" />
+
+    <TextView
+        android:id="@id/noDeviceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iphone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@android:color/transparent"
+        android:text="@string/no_device"
+        android:textSize="@dimen/sp_24"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@id/noDeviceSubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/noDeviceText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"
+        android:textColor="@color/text_color_60"
+        android:textSize="@dimen/sp_16"
+        android:typeface="sans"
+        android:visibility="gone" />
+
+    <com.juyou.app.widget.ChrysanthemumLoadingView
+        android:id="@id/noDeviceLoading"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:layout_below="@id/noDeviceText"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:visibility="invisible"
+        app:pathColor="#eee"
+        app:segmentLength="7.0sp"
+        app:segmentWidth="3.0sp" />
+
+    <!-- Centered Reconnect Button below status text -->
+    <ImageButton
+        android:id="@id/reconnectButton"
+        android:layout_width="48.0dp"
+        android:layout_height="48.0dp"
+        android:layout_below="@id/noDeviceText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24.0dp"
+        android:background="@drawable/ios_reconnect_btn_bg"
+        android:contentDescription="@string/reconnect_dongle"
+        android:padding="12.0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_refresh_white_48dp" />
+
+    <!-- Exit / Back Button at top start -->
+    <ImageButton
+        android:id="@id/exitButton"
+        android:layout_width="44.0dp"
+        android:layout_height="44.0dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24.0dp"
+        android:layout_marginTop="20.0dp"
+        android:background="@drawable/ios_reconnect_btn_bg"
+        android:contentDescription="@string/exit"
+        android:padding="10.0dp"
+        android:rotation="180.0"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_exit_white_48dp" />
+
+    <!-- Settings Button at top end -->
+    <ImageButton
+        android:id="@id/settingButton"
+        android:layout_width="44.0dp"
+        android:layout_height="44.0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24.0dp"
+        android:layout_marginTop="20.0dp"
+        android:background="@drawable/ios_reconnect_btn_bg"
+        android:contentDescription="@string/settings"
+        android:padding="10.0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_settings_white_48dp" />
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
+    android:clipToPadding="false"
+    android:overScrollMode="never"
+    android:paddingLeft="0.0dp"
+    android:paddingRight="0.0dp"
+    android:paddingTop="6.0dp"
+    android:paddingBottom="40.0dp"
+    style="?preferenceFragmentListStyle" />
